@@ -1,6 +1,6 @@
 # projeto Dsma Music
 
-A new Flutter project.
+Projeto universitário Desenvolvido para ser integrado ao Spotify e permitir Criar playlist, Add música, Recomendar músicas,Listar playlists. Com Login Auth 2.0.
 
 ## Getting Started
 
