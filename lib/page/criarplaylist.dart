@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:projeto/components/ButtonDSMA.dart';
+import 'package:projeto/page/detalharplaylists.dart';
 import '../components/AppBarDSMA.dart';
 import '../components/FieldsDSMA.dart';
+import 'listarplaylists.dart';
 
 class CriarPlaylistWidget extends StatefulWidget {
   const CriarPlaylistWidget({Key? key}) : super(key: key);
@@ -16,8 +18,18 @@ class _CriarPlaylistWidgetState extends State<CriarPlaylistWidget> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
     bool switchValue = true;
+
+    void onPressedCancel() {
+      Navigator.push(context,
+          MaterialPageRoute(builder: ((context) => ListarPlaylistsWidget())));
+    }
+
+    void onPressedPronto() {
+      Navigator.push(context,
+          MaterialPageRoute(builder: ((context) => DetalharPlaylistsWidget())));
+    }
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Colors.white,
@@ -137,17 +149,19 @@ class _CriarPlaylistWidgetState extends State<CriarPlaylistWidget> {
                 mainAxisSize: MainAxisSize.max,
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
-                  const ButtonDSMAWidget(
+                  ButtonDSMAWidget(
                     colorButton: Colors.redAccent,
                     icon: Icons.close,
                     descricao: 'Cancelar',
+                    onPressed: onPressedCancel,
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(200, 0, 0, 0),
                     child: ButtonDSMAWidget(
                       colorButton: Colors.blueAccent,
                       icon: Icons.check,
                       descricao: 'Pronto',
+                      onPressed: onPressedPronto,
                     ),
                   ),
                 ],

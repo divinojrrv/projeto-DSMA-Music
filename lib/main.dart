@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
         brightness: Brightness.dark,
       ),
-      home: const AdicionarMusicasWidget(),
+      home: const HomePageWidget(),
     );
   }
 }

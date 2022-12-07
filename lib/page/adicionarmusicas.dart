@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projeto/components/ListTitleDSMA.dart';
 import 'package:projeto/components/TitleListDSMA.dart';
+import 'package:projeto/page/detalharplaylists.dart';
+import 'package:projeto/page/listarplaylists.dart';
 
 import '../components/AppBarDSMA.dart';
 import '../components/ButtonDSMA.dart';
@@ -39,6 +41,20 @@ class _AdicionarMusicasWidgetState extends State<AdicionarMusicasWidget> {
         ),
       ),
     );
+
+    void onPressed() {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: ((context) => const ListarPlaylistsWidget())));
+    }
+
+    void clicarList() {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: ((context) => const DetalharPlaylistsWidget())));
+    }
 
     return Scaffold(
       key: scaffoldKey,
@@ -240,26 +256,31 @@ class _AdicionarMusicasWidgetState extends State<AdicionarMusicasWidget> {
                       title: 'Immortals',
                       descricao: 'Cantor Xpto',
                       icon: Icons.add_circle_outline,
+                      onTap: clicarList,
                     ),
                     ListTitleDSMAWidget(
                       title: 'Casei com a Putaria',
                       descricao: 'Cantor Xpto 2',
                       icon: Icons.add_circle_outline,
+                      onTap: clicarList,
                     ),
                     ListTitleDSMAWidget(
                       title: 'Louca',
                       descricao: 'Cantor Xpto 3',
                       icon: Icons.add_circle_outline,
+                      onTap: clicarList,
                     ),
                     ListTitleDSMAWidget(
                       title: 'Eloise',
                       descricao: 'Cantor Xpto 4',
                       icon: Icons.add_circle_outline,
+                      onTap: clicarList,
                     ),
                     ListTitleDSMAWidget(
                       title: 'Envolver',
                       descricao: 'Cantor Xpto 5',
                       icon: Icons.add_circle_outline,
+                      onTap: clicarList,
                     ),
                   ],
                 ),
@@ -275,6 +296,7 @@ class _AdicionarMusicasWidgetState extends State<AdicionarMusicasWidget> {
                     colorButton: Color(0xFF1778F2),
                     icon: Icons.undo,
                     descricao: 'Voltar',
+                    onPressed: onPressed,
                   ),
                 ),
               ),

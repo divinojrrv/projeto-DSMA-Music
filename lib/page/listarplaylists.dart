@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projeto/components/ListTitleDSMA.dart';
 import 'package:projeto/components/TitleListDSMA.dart';
+import 'package:projeto/page/criarplaylist.dart';
+import 'package:projeto/page/detalharplaylists.dart';
 
 import '../components/AppBarDSMA.dart';
 import '../components/ButtonDSMA.dart';
@@ -18,6 +20,20 @@ class _ListarPlaylistsWidgetState extends State<ListarPlaylistsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    void onPressed() {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: ((context) => const CriarPlaylistWidget())));
+    }
+
+    void clicarList() {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: ((context) => const DetalharPlaylistsWidget())));
+    }
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Colors.white,
@@ -61,31 +77,37 @@ class _ListarPlaylistsWidgetState extends State<ListarPlaylistsWidget> {
                       title: 'Muito Loukaaa',
                       descricao: '1 músicas',
                       icon: Icons.arrow_forward_ios,
+                      onTap: clicarList,
                     ),
                     ListTitleDSMAWidget(
                       title: 'Muito Loukaaa 2',
                       descricao: '2 músicas',
                       icon: Icons.arrow_forward_ios,
+                      onTap: clicarList,
                     ),
                     ListTitleDSMAWidget(
                       title: 'Muito Loukaaa',
                       descricao: '3 músicas',
                       icon: Icons.arrow_forward_ios,
+                      onTap: clicarList,
                     ),
                     ListTitleDSMAWidget(
                       title: 'Muito Loukaaa 2',
                       descricao: '4 músicas',
                       icon: Icons.arrow_forward_ios,
+                      onTap: clicarList,
                     ),
                     ListTitleDSMAWidget(
                       title: 'Muito Loukaaa',
                       descricao: '5 músicas',
                       icon: Icons.arrow_forward_ios,
+                      onTap: clicarList,
                     ),
                     ListTitleDSMAWidget(
                       title: 'Muito Loukaaa 2',
                       descricao: '6 músicas',
                       icon: Icons.arrow_forward_ios,
+                      onTap: clicarList,
                     ),
                   ],
                 ),
@@ -101,6 +123,7 @@ class _ListarPlaylistsWidgetState extends State<ListarPlaylistsWidget> {
                     colorButton: Color(0xFF1778F2),
                     icon: Icons.add,
                     descricao: 'Add Playlist',
+                    onPressed: onPressed,
                   ),
                 ),
               ),

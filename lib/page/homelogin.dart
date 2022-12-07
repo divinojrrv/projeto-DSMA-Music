@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projeto/components/ButtonDSMA.dart';
+import 'package:projeto/page/homepage.dart';
 import '../components/FieldsDSMA.dart';
+import 'listarplaylists.dart';
 
 class HomeLoginWidget extends StatefulWidget {
   const HomeLoginWidget({Key? key}) : super(key: key);
@@ -15,6 +17,16 @@ class _HomeLoginWidgetState extends State<HomeLoginWidget> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
+    void onPressedCancel() {
+      Navigator.push(
+          context, MaterialPageRoute(builder: ((context) => HomePageWidget())));
+    }
+
+    void onPressedPronto() {
+      Navigator.push(context,
+          MaterialPageRoute(builder: ((context) => ListarPlaylistsWidget())));
+    }
 
     return Scaffold(
       key: scaffoldKey,
@@ -125,6 +137,7 @@ class _HomeLoginWidgetState extends State<HomeLoginWidget> {
                     colorButton: Colors.redAccent,
                     icon: Icons.close,
                     descricao: 'Cancelar',
+                    onPressed: onPressedCancel,
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(200, 0, 0, 0),
@@ -132,6 +145,7 @@ class _HomeLoginWidgetState extends State<HomeLoginWidget> {
                       colorButton: Colors.blueAccent,
                       icon: Icons.check,
                       descricao: 'Pronto',
+                      onPressed: onPressedPronto,
                     ),
                   ),
                 ],

@@ -3,23 +3,27 @@ import 'package:flutter/material.dart';
 class ListTitleDSMAWidget extends StatefulWidget {
   final String title, descricao;
   final IconData icon;
+  final Function onTap;
 
   const ListTitleDSMAWidget(
       {Key? key,
       required this.title,
       required this.descricao,
-      required this.icon})
+      required this.icon,
+      required this.onTap})
       : super(key: key);
 
   @override
   _ListTitleDSMAWidgetState createState() =>
-      _ListTitleDSMAWidgetState(title, descricao, icon);
+      _ListTitleDSMAWidgetState(title, descricao, icon, onTap);
 }
 
 class _ListTitleDSMAWidgetState extends State<ListTitleDSMAWidget> {
   final String title, descricao;
   final IconData icon;
-  _ListTitleDSMAWidgetState(this.title, this.descricao, this.icon);
+  final Function onTap;
+
+  _ListTitleDSMAWidgetState(this.title, this.descricao, this.icon, this.onTap);
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +53,9 @@ class _ListTitleDSMAWidgetState extends State<ListTitleDSMAWidget> {
       ),
       tileColor: Color(0xFFF5F5F5),
       dense: false,
+      onTap: (() {
+        onTap();
+      }),
     );
   }
 }
