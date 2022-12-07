@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../page/homelogin.dart';
+
 class AppBarDSMAWidget extends StatefulWidget {
   final String title, descricao, imagem;
   const AppBarDSMAWidget(
@@ -41,10 +43,16 @@ class _AppBarDSMAWidgetState extends State<AppBarDSMAWidget> {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(
-                      Icons.arrow_back,
+                    IconButton(
                       color: Color(0xFF1778F2),
-                      size: 26,
+                      iconSize: 26,
+                      icon: Icon(Icons.arrow_back),
+                      onPressed: () {
+                        Navigator.pop(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomeLoginWidget()));
+                      },
                     ),
                   ],
                 ),
@@ -86,7 +94,7 @@ class _AppBarDSMAWidgetState extends State<AppBarDSMAWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(35, 15, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(20, 15, 0, 0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -107,15 +115,23 @@ class _AppBarDSMAWidgetState extends State<AppBarDSMAWidget> {
                     Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Text(
-                          'Desconectar',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: Color(0xFF1778F2),
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
+                        InkWell(
+                            onTap: (() {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) =>
+                                          HomeLoginWidget())));
+                            }),
+                            child: Text(
+                              'Desconectar',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                color: Color(0xFF1778F2),
+                                fontSize: 14,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            )),
                       ],
                     ),
                   ],
